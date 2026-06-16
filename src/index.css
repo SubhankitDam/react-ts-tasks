@@ -13,7 +13,7 @@ body {
   width: 100%;
   max-width: 1200px;
   min-height: 100vh;
-  font-family: var(--ff);
+  font-family: var(--ff), sans-serif;
   display: grid;
   justify-items: center;
   align-items: start;
