@@ -1,0 +1,17 @@
+.tasks-completed {
+  font-size: 1.25rem;
+  margin-bottom: 1em;
+}
+
+.task-list-container {
+  width: 100%;
+  max-width: 800px;
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

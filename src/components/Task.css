@@ -1,0 +1,60 @@
+.task {
+  --border-color: oklch(70.7% 0.022 261.325);
+
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border: var(--border-style) var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1.15rem;
+}
+
+.task-checkbox {
+  --border-color: #b2beb5;
+  --border-radius: 4px;
+
+  /* hide the default appearance of the checkbox */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* Style the custom box */
+  width: 1.5rem;
+  height: 1.5rem;
+  border: var(--border-style) var(--border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+
+  /* Set up a grid/flexbox center to position the custom checkmark */
+  display: grid;
+  place-content: center;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--checkbox-bg-color-hover);
+  }
+
+  /* Build our own custom checkmark */
+  &::before {
+    content: '';
+    width: 0.6rem;
+    height: 0.35rem;
+    border-left: 2px solid var(--white);
+    border-bottom: 2px solid var(--white);
+    transform: rotate(-45deg) scale(0);
+    transition: transform 0.2s ease-in-out;
+
+    margin-bottom: 2px;
+  }
+
+  &:checked {
+    background-color: var(--checkbox-bg-color-checked);
+    border-color: var(--checkbox-bg-color-checked);
+
+    /* Show the checkmark when checked */
+    &::before {
+      transform: rotate(-45deg) scale(1);
+    }
+  }
+}
