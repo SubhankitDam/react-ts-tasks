@@ -1,6 +1,6 @@
 import './Input.css';
 
-export type TaskInputProps = {
+type TaskInputProps = {
   readonly taskInput: string;
   readonly setTaskInput: (taskInput: string) => void;
   readonly addTask: (taskInput: string) => void;
@@ -9,20 +9,24 @@ export type TaskInputProps = {
 export function Input({ taskInput, setTaskInput, addTask }: TaskInputProps) {
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
-  ) => {
+  ): void => {
     setTaskInput(event.target.value);
   };
 
-  const handleClick = () => addTask(taskInput);
+  const handleClick = () => {
+    addTask(taskInput);
+  };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLInputElement>,
+  ): void => {
     if (event.key === 'Enter') {
       handleClick();
     }
     if (event.key === 'Escape') {
       setTaskInput('');
     }
-  }
+  };
 
   return (
     <div className="task-input-container">

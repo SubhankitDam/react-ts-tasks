@@ -1,11 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Input } from './components/Input.tsx';
 import { List } from './components/List.tsx';
 import { type Task } from './types.ts';
 import './App.css';
 
+function loadTasks(): Task[] {
+  const storedTasks = localStorage.getItem('tasks');
+  return storedTasks ? JSON.parse(storedTasks) : [];
+}
+
+function saveTasks(tasks: Task[]): void {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(loadTasks());
   const [taskInput, setTaskInput] = useState('');
 
   const addTask = (taskInput: string): void => {
@@ -25,6 +34,10 @@ function App() {
 
     setTaskInput('');
   };
+
+  useEffect(() => {
+    saveTasks(tasks);
+  }, [tasks]);
 
   return (
     <>
