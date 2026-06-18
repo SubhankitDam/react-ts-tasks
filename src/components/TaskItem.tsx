@@ -20,8 +20,6 @@ export function TaskItem({
     toggleTask({ id });
     setIsExiting(true);
   };
-  console.log(isExiting);
-
   const handleTaskRemovalAnimation = (event: AnimationEvent<HTMLLIElement>) => {
     if (event.animationName === 'task-is-exiting') {
       removeTask({ id });

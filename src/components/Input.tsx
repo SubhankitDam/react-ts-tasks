@@ -1,3 +1,4 @@
+import type { ChangeEvent, KeyboardEvent } from 'react';
 import './Input.css';
 
 type TaskInputProps = {
@@ -8,7 +9,7 @@ type TaskInputProps = {
 
 export function Input({ taskInput, setTaskInput, addTask }: TaskInputProps) {
   const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
+    event: ChangeEvent<HTMLInputElement, HTMLInputElement>,
   ): void => {
     setTaskInput(event.target.value);
   };
@@ -17,9 +18,7 @@ export function Input({ taskInput, setTaskInput, addTask }: TaskInputProps) {
     addTask(taskInput);
   };
 
-  const handleKeyDown = (
-    event: React.KeyboardEvent<HTMLInputElement>,
-  ): void => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>): void => {
     if (event.key === 'Enter') {
       handleClick();
     }
