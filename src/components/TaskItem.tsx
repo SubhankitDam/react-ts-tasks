@@ -2,17 +2,17 @@ import { type Task } from '../types.ts';
 import './Task.css';
 
 interface TaskItemProps extends Task {
-  readonly toggleTasks: ({ id }: { id: string }) => void;
+  readonly toggleTask: ({ id }: { id: string }) => void;
 }
 
 export function TaskItem({
   id,
   description,
   isCompleted,
-  toggleTasks,
+  toggleTask,
 }: TaskItemProps) {
   const handleCheckbox = () => {
-    toggleTasks({ id });
+    toggleTask({ id });
   };
 
   return (

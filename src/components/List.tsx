@@ -10,7 +10,7 @@ interface TaskListProps {
 export function List({ tasks, setTasks }: TaskListProps) {
   const remaining = tasks.filter((task) => !task.isCompleted).length;
 
-  const toggleTasks = ({ id }: { id: string }) => {
+  const toggleTask = ({ id }: { id: string }) => {
     setTasks(
       tasks.map((task) => {
         if (task.id === id) {
@@ -32,7 +32,7 @@ export function List({ tasks, setTasks }: TaskListProps) {
               id={task.id}
               description={task.description}
               isCompleted={task.isCompleted}
-              toggleTasks={toggleTasks}
+              toggleTask={toggleTask}
             />
           );
         })}
