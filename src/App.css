@@ -1,3 +1,4 @@
+/* ---------------- APPLICATION STYLES ---------------- */
 :root {
   /* COLORS */
   --btn-bg-color: #317873; /* Myrtle Green */
@@ -8,17 +9,14 @@
   --white: #fff;
   --black: #000;
 
-  /* FONTS */
-  --ff: 'Do Hyeon', Arial, Helvetica, sans-serif;
-  --fs-l: 2.5rem;
-
   /* BORDERS */
   --border-color: #000; /* fallback border color */
   --border-style: 2px solid; /* border style */
   --border-radius: 5px; /* fallback border radius */
 
   /* CHECKBOX */
-  --checkbox-bg-color-hover: oklch(0.861 0.088 146.035 / 0.5)
-    /* Tranquil Pastel Green */;
+  --checkbox-bg-color-hover: oklch(
+    0.861 0.088 146.035 / 0.5
+  ); /* Tranquil Pastel Green */
   --checkbox-bg-color-checked: #3eb489; /* Mint */
 }
