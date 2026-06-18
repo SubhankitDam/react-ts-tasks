@@ -39,17 +39,6 @@ function App() {
     saveTasks(tasks);
   }, [tasks]);
 
-  const toggleTasks = ({ id }: { id: string }) => {
-    setTasks(
-      tasks.map((task) => {
-        if (task.id === id) {
-          return { ...task, isCompleted: !task.isCompleted };
-        }
-        return task;
-      }),
-    );
-  };
-
   /* TODO: add functionality to take input from anywhere in the page
       when '/' or 'Ctrl + K' is pressed
    */
@@ -61,7 +50,7 @@ function App() {
         setTaskInput={setTaskInput}
         addTask={addTask}
       />
-      <List tasks={tasks} toggleTasks={toggleTasks} />
+      <List tasks={tasks} setTasks={setTasks} />
     </>
   );
 }
