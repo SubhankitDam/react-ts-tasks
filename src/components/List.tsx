@@ -21,6 +21,10 @@ export function List({ tasks, setTasks }: TaskListProps) {
     );
   };
 
+  const removeTask = ({ id }: { id: string }) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
   return (
     <div className="task-list-container">
       <p className="tasks-completed">Tasks Remaining: {remaining}</p>
@@ -33,6 +37,7 @@ export function List({ tasks, setTasks }: TaskListProps) {
               description={task.description}
               isCompleted={task.isCompleted}
               toggleTask={toggleTask}
+              removeTask={removeTask}
             />
           );
         })}

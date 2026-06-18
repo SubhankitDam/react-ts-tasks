@@ -1,8 +1,10 @@
+import { type AnimationEvent, useState } from 'react';
 import { type Task } from '../types.ts';
-import './Task.css';
+import './TaskItem.css';
 
 interface TaskItemProps extends Task {
   readonly toggleTask: ({ id }: { id: string }) => void;
+  readonly removeTask: ({ id }: { id: string }) => void;
 }
 
 export function TaskItem({
@@ -10,13 +12,27 @@ export function TaskItem({
   description,
   isCompleted,
   toggleTask,
+  removeTask,
 }: TaskItemProps) {
+  const [isExiting, setIsExiting] = useState(false);
+
   const handleCheckbox = () => {
     toggleTask({ id });
+    setIsExiting(true);
+  };
+  console.log(isExiting);
+
+  const handleTaskRemovalAnimation = (event: AnimationEvent<HTMLLIElement>) => {
+    if (event.animationName === 'task-is-exiting') {
+      removeTask({ id });
+    }
   };
 
   return (
-    <li className="task">
+    <li
+      className={`task ${isExiting ? 'is-exiting' : ''}`.trim()}
+      onAnimationEnd={handleTaskRemovalAnimation}
+    >
       <p>{description}</p>
       <input
         type="checkbox"

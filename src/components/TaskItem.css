@@ -58,3 +58,28 @@
     }
   }
 }
+
+.task.is-exiting {
+  /* Capture the space before exiting */
+  max-height: 100px;
+  overflow: hidden;
+
+  animation: 0.25s ease-out 0.5s task-is-exiting forwards;
+}
+
+@keyframes task-is-exiting {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%);
+    opacity: 0;
+
+    /* Collapse the physical space while task is exiting */
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
