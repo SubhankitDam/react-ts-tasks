@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { TaskItem } from './TaskItem.tsx';
 import { type Task } from '../types.ts';
 import './List.css';
@@ -9,13 +8,7 @@ interface TaskProps {
 }
 
 export function List({ tasks, toggleTasks }: TaskProps) {
-  const [remaining, setRemaining] = useState(0);
-
-  useEffect(() => {
-    (() => {
-      setRemaining(tasks.filter((task) => !task.isCompleted).length);
-    })();
-  }, [tasks]);
+  const remaining = tasks.filter((task) => !task.isCompleted).length;
 
   return (
     <div className="task-list-container">
