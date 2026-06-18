@@ -9,6 +9,11 @@
   font-size: 1.15rem;
 }
 
+.task-description {
+  width: 100%;
+  cursor: pointer;
+}
+
 .task-checkbox {
   --border-color: #b2beb5;
   --border-radius: 4px;

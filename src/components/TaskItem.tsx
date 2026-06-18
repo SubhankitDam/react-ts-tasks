@@ -31,7 +31,9 @@ export function TaskItem({
       className={`task ${isExiting ? 'is-exiting' : ''}`.trim()}
       onAnimationEnd={handleTaskRemovalAnimation}
     >
-      <p>{description}</p>
+      <label className="task-description" htmlFor={id}>
+        {description}
+      </label>
       <input
         type="checkbox"
         name={description}
