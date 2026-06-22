@@ -29,7 +29,8 @@ body {
 
 /* -------------------- GLOBAL STYLES -------------------- */
 h2 {
-  font-size: var(--ff), sans-serif;
+  font-family: var(--ff), sans-serif;
+  font-size: var(--fs-l);
 }
 
 li {
